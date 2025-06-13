@@ -1,0 +1,246 @@
+/* Navbar Component Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(11, 12, 12, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(210, 193, 175, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar:hover {
+  background-color: rgba(11, 12, 12, 0.3);
+}
+
+.navContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.navLogo a {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.navLogo a:hover {
+  color: #d2c1af;
+}
+
+.navMenu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navLink:hover {
+  color: #d2c1af;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #d2c1af;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* Mobile Menu Toggle */
+.mobileMenuToggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.mobileMenuToggle:hover {
+  transform: scale(1.1);
+}
+
+.mobileMenuToggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  transform-origin: center;
+}
+
+.mobileMenuToggle:hover span {
+  background-color: #d2c1af;
+}
+
+/* Hamburger Animation - Transform to X */
+.mobileMenuToggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+  background-color: #d2c1af;
+}
+
+.mobileMenuToggle.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.mobileMenuToggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+  background-color: #d2c1af;
+}
+
+.bookNowButton {
+  padding: 10px 25px;
+  background-color: transparent;
+  border: 2px solid #888888;
+  border-radius: 0;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.bookNowButton:hover {
+  background-color: #d2c1af;
+  border-color: #d2c1af;
+  color: #0b0c0c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navContainer {
+    padding: 1rem;
+  }
+  
+  .navMenu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);    background-color: rgba(11, 12, 12, 0.95);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 2rem;
+    gap: 1.5rem;
+    transition: left 0.3s ease;
+    transform: none;
+    left: -100%;
+  }
+  
+  .navMenu.active {
+    left: 0;
+  }
+  
+  .mobileMenuToggle {
+    display: flex;
+  }
+  
+  .navLink {
+    font-size: 1.2rem;
+    padding: 1rem 0;
+  }
+  
+  .bookNowButton {
+    padding: 8px 20px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navLogo a {
+    font-size: 1.5rem;
+  }
+  
+  .navContainer {
+    padding: 0.8rem;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced Mobile Menu Interactions */
+@media (max-width: 768px) {
+  .navMenu {
+    transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 999;
+  }
+  
+  .navMenu.active .navItem {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .navMenu.active .navItem:nth-child(1) { animation-delay: 0.1s; }
+  .navMenu.active .navItem:nth-child(2) { animation-delay: 0.2s; }
+  .navMenu.active .navItem:nth-child(3) { animation-delay: 0.3s; }
+  .navMenu.active .navItem:nth-child(4) { animation-delay: 0.4s; }
+  .navMenu.active .navItem:nth-child(5) { animation-delay: 0.5s; }
+  
+  .navLink {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .navLink:active {
+    transform: scale(0.95);
+  }
+}

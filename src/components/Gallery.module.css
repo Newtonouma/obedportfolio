@@ -1,0 +1,364 @@
+/* Gallery Component Styles */
+.gallery {
+  padding-top: 50px;
+  background-color: #0b0c0c;
+}
+
+.galleryContainer {
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.galleryHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+.galleryTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.gallerySubtitle {
+  font-size: 1.2rem;
+  color: #d2c1af;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Category Navigation */
+.categoryNav {
+  margin-bottom: 3rem;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.categoryList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.categoryItem {
+  position: relative;
+}
+
+.categoryButton {
+  background: transparent;
+  border: 2px solid #d2c1af;
+  color: #ffffff;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.categoryButton:hover {
+  background-color: #d2c1af;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(210, 193, 175, 0.3);
+}
+
+.categoryButton.active {
+  background-color: #d2c1af;
+  border-color: #d2c1af;
+  color: #0b0c0c;
+}
+
+.categoryCount {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* Image Grid */
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.imageItem {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.imageItem:hover {
+  transform: translateY(-5px);
+}
+
+.galleryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.imageItem:hover .galleryImage {
+  transform: scale(1.1);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 12, 12, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.imageItem:hover .imageOverlay {
+  opacity: 1;
+}
+
+.overlayContent {
+  text-align: center;
+  color: #ffffff;
+}
+
+.viewIcon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.imageTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Load More Button */
+.loadMore {
+  text-align: center;
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.loadMoreButton {
+  padding: 15px 35px;
+  background-color: transparent;
+  border: 2px solid #888888;
+  border-radius: 0;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.loadMoreButton:hover {
+  background-color: #d2c1af;
+  border-color: #d2c1af;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(210, 193, 175, 0.3);
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.lightboxContent {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: #ffffff;
+  overflow: hidden;
+  animation: scaleIn 0.3s ease-out;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 2001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.closeButton:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.lightboxImage {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.lightboxInfo {
+  padding: 1.5rem;
+  background: #ffffff;
+}
+
+.lightboxInfo h3 {
+  margin: 0 0 0.5rem 0;
+  color: #0b0c0c;
+  font-size: 1.3rem;
+}
+
+.lightboxInfo p {
+  margin: 0;
+  color: #666666;
+  font-size: 1rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gallery {
+    padding: 60px 0;
+  }
+  
+  .galleryContainer {
+    padding: 0 1rem;
+  }
+  
+  .galleryTitle {
+    font-size: 2.5rem;
+  }
+  
+  .gallerySubtitle {
+    font-size: 1rem;
+  }
+  
+  .categoryList {
+    gap: 0.8rem;
+    justify-content: flex-start;
+  }
+  
+  .categoryButton {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    flex: 0 0 auto;
+  }
+  
+  .imageGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .loadMoreButton {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+  
+  .lightboxContent {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+  
+  .lightboxInfo {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .galleryTitle {
+    font-size: 2rem;
+  }
+  
+  .categoryList {
+    gap: 0.6rem;
+    justify-content: flex-start;
+  }
+  
+  .categoryButton {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    flex: 0 0 auto;
+    min-width: fit-content;
+  }
+  
+  .imageGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .closeButton {
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
+  }
+}
