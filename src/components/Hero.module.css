@@ -5,11 +5,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;  overflow: hidden;
+  color: #ffffff;
+  overflow: hidden;
 }
 
 .heroBackground {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -18,12 +19,12 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: -2;
-  animation: subtleZoom 20s ease-in-out infinite alternate;
+  background-attachment: fixed;
+  z-index: -2;  animation: subtleZoom 20s ease-in-out infinite alternate;
 }
 
 .heroOverlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -181,20 +182,6 @@
 }
 
 /* Background Animation */
-.heroBackground {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/images/hero-bg.JPG');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -2;
-  animation: subtleZoom 20s ease-in-out infinite alternate;
-}
-
 @keyframes subtleZoom {
   from {
     transform: scale(1);
