@@ -100,9 +100,10 @@ const Gallery = () => {
 
   const closeLightbox = () => {
     setSelectedImage(null);
-  };
-  return (
+  };  return (
     <section className={styles.gallery} id="portfolio">
+      <div className={styles.galleryBackground} />
+      <div className={styles.galleryOverlay} />
       <div className={styles.galleryContainer}>
         {/* Category Navigation */}
         <nav className={styles.categoryNav}>
